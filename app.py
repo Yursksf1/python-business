@@ -9,6 +9,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def play():
-    return render_template('index.html')
+    lenguaje = 'C++'
+    persona = 'Katterine'
+    return render_template(
+        'index.html', 
+        lenguaje=lenguaje,
+        persona=persona
+    )
 
 
