@@ -8,6 +8,7 @@ app = Flask(__name__)
 
 @app.route('/suma', methods=['POST', 'GET'])
 def suma():
+    titulo = 'suma'
     respuesta = 'no tengo respuesta'
     if request.method == 'POST':
         valor_1 = int(request.form['valor_1'])
@@ -17,7 +18,8 @@ def suma():
 
     return render_template(
         'index.html',
-        respuesta=respuesta
+        respuesta=respuesta,
+        titulo=titulo
     )
 
 

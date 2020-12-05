@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %} Operacion | {{ titulo }} {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <form method="POST">
+                        <div class="form-group">
+                            <label for="interes">Valor 1:</label>
+                            <input type="number" name="valor_1" min="10" max="100" value=50>
+                        </div>
+                        <div class="form-group">
+                            <label for="interes">Valor 2:</label>
+                            <input type="number" name="valor_2" min="10" max="100" value=50>
+                        </div>
+                        <button class="btn btn-primary" type="submit">
+                            enviar
+                        </button>
+                    </form>
+                    <br>
+                    <div>
+                        {{ respuesta }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
