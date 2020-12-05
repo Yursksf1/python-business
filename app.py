@@ -6,6 +6,12 @@ import random
 app = Flask(__name__)
 
 
+@app.route('/')
+def index():
+    return render_template(
+        'indice.html'
+    )
+
 @app.route('/suma', methods=['POST', 'GET'])
 def suma():
     titulo = 'suma'
@@ -35,8 +41,8 @@ def resta():
 
     return render_template(
         'index.html',
-        respuesta=respuesta
-        titulo=titulo,
+        respuesta=respuesta,
+        titulo=titulo
     )
 
 
@@ -52,8 +58,8 @@ def multiplicacion():
 
     return render_template(
         'index.html',
-        respuesta=respuesta
-        titulo=titulo,
+        respuesta=respuesta,
+        titulo=titulo
     )
 
 
@@ -69,8 +75,28 @@ def division():
 
     return render_template(
         'index.html',
-        respuesta=respuesta
-        titulo=titulo,
+        respuesta=respuesta,
+        titulo=titulo
     )
 
 
+
+@app.route('/juego', methods=['POST', 'GET'])
+def juego():
+    value_random = random.randint(1, 10)
+
+    titulo = 'juego'
+    respuesta = 'Vamos a jugar'
+    if request.method == 'POST':
+        valor_1 = int(request.form['valor_1'])
+        if value_random == valor_1: 
+            respuesta = 'Adivinaste!'
+        else: 
+            respuesta = 'Intenta otra vez! '
+
+
+    return render_template(
+        'content_juego.html',
+        respuesta=respuesta,
+        titulo=titulo,
+    )
