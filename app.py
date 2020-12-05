@@ -19,12 +19,13 @@ def suma():
     return render_template(
         'index.html',
         respuesta=respuesta,
-        titulo=titulo
+        titulo=titulo,
     )
 
 
 @app.route('/resta', methods=['POST', 'GET'])
 def resta():
+    titulo = 'resta'
     respuesta = 'no tengo respuesta'
     if request.method == 'POST':
         valor_1 = int(request.form['valor_1'])
@@ -35,12 +36,13 @@ def resta():
     return render_template(
         'index.html',
         respuesta=respuesta
+        titulo=titulo,
     )
-
 
 
 @app.route('/multiplicacion', methods=['POST', 'GET'])
 def multiplicacion():
+    titulo = 'multiplicacion'
     respuesta = 'no tengo respuesta'
     if request.method == 'POST':
         valor_1 = int(request.form['valor_1'])
@@ -51,11 +53,13 @@ def multiplicacion():
     return render_template(
         'index.html',
         respuesta=respuesta
+        titulo=titulo,
     )
 
 
 @app.route('/division', methods=['POST', 'GET'])
 def division():
+    titulo = 'division'
     respuesta = 'no tengo respuesta'
     if request.method == 'POST':
         valor_1 = int(request.form['valor_1'])
@@ -66,6 +70,7 @@ def division():
     return render_template(
         'index.html',
         respuesta=respuesta
+        titulo=titulo,
     )
 
 
